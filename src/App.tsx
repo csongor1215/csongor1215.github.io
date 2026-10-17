@@ -8,6 +8,7 @@ import {
   Disc3,
   Skull,
 } from 'lucide-react';
+import tourDatesData from './tourDates.json';
 
 const Instagram = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -41,18 +42,10 @@ interface TourDate {
 }
 
 function App() {
-  const [tourDates, setTourDates] = useState<TourDate[]>([]);
+  const [tourDates] = useState<TourDate[]>(tourDatesData);
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    fetch(`/tourDates.json?t=${Date.now()}`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Nem tölthető be a turnédátum');
-        return res.json();
-      })
-      .then((data) => setTourDates(data))
-      .catch((err) => console.error(err));
-
     const handleScroll = () => {
       const sections = ['home', 'about', 'music', 'tour'];
       const scrollPos = window.scrollY + 100;
