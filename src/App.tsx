@@ -156,7 +156,7 @@ function App() {
             className="text-xs sm:text-lg md:text-xl uppercase tracking-widest sm:tracking-[0.25em] mb-10 break-words"
             style={{ color: '#888' }}
           >
-            Brutális • Könyörtelen • Megsemmisítő
+            fasz • brutal shit • didy
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -192,7 +192,7 @@ function App() {
               }}
             >
               <Calendar className="w-5 h-5" />
-              Turnédátumok
+              Koncertek
             </button>
           </div>
         </div>
@@ -212,46 +212,13 @@ function App() {
                 A Zenekar
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase leading-tight">
-                Tűzben Edzett,{' '}
-                <span style={{ color: '#cc0000' }}>Pusztításra Született</span>
+                Igazából csak{' '}
+                <span style={{ color: '#cc0000' }}>verjük a faszunkat</span>
               </h2>
               <div className="space-y-5 leading-relaxed" style={{ color: '#888' }}>
                 <p>
-                  A Slamtendrectomy a föld mélyéről tört elő, azzal az egyetlen céllal,
-                  hogy a legdurvább, legkegyetlenebb brutális death metalt hozza létre,
-                  amit valaha emberi fül hallott.
+                  Igen, ez a szitu.
                 </p>
-                <p>
-                  Budapest mélyéről indult útjára a zenekar, ahol a romlott,
-                  izzadt underground helyszíneken csiszolódott egyedi
-                  hangjuk. Minden riff egy tomboló viharkard. Minden breakdown
-                  egy irgalmatlan robbantás.
-                </p>
-                <p>
-                  Három kritikusok által ünnepelt albummal és megszámlálhatatlan
-                  arcletépő fellépéssel a hátuk mögött a Slamtendrectomy tovább tolja
-                  a szélsőséges zene határait.
-                </p>
-              </div>
-
-              <div
-                className="grid grid-cols-3 gap-6 mt-10 border-t pt-8"
-                style={{ borderColor: '#1a0000' }}
-              >
-                {[
-                  { num: '3', label: 'Albumok' },
-                  { num: '200+', label: 'Koncertek' },
-                  { num: '50E', label: 'Rajongók' },
-                ].map(({ num, label }) => (
-                  <div key={label} className="text-center">
-                    <div className="text-3xl font-black mb-1" style={{ color: '#cc0000' }}>
-                      {num}
-                    </div>
-                    <div className="text-xs uppercase tracking-widest" style={{ color: '#555' }}>
-                      {label}
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -303,10 +270,10 @@ function App() {
               Diszkográfia
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">
-              A <span style={{ color: '#cc0000' }}>Pusztítás</span> Hangjai
+              A <span style={{ color: '#cc0000' }}>FITYMACSATTOGÁS</span> Hangjai
             </h2>
             <p style={{ color: '#666' }} className="max-w-xl mx-auto">
-              Könyörtelen hangi erőszak. Minden egyes dal a teljes megsemmisülés felé vezet.
+              Még mindig csak a faszunkat verjük.
             </p>
           </div>
 
@@ -394,10 +361,10 @@ function App() {
               Turné
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">
-              Láss Minket <span style={{ color: '#cc0000' }}>Élőben</span>
+              koncertek <span style={{ color: '#cc0000' }}>vagy mi a fasz</span>
             </h2>
             <p style={{ color: '#666' }} className="max-w-xl mx-auto">
-              Ha eddig túlélted, most itt az alkalom megbizonyosodni róla, hogy soha nem felejted el.
+              Verjük együtt a faszunkat.
             </p>
           </div>
 
@@ -505,56 +472,6 @@ function App() {
               </p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section
-        className="py-16 px-6"
-        style={{
-          background: 'linear-gradient(180deg, #050000, #0d0000 50%, #050000)',
-          borderTop: '1px solid #1a0000',
-          borderBottom: '1px solid #1a0000',
-        }}
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          <Skull className="w-8 h-8 mx-auto mb-6" style={{ color: '#8b0000' }} />
-          <h3 className="text-2xl font-black uppercase tracking-wider mb-3">
-            Maradj a <span style={{ color: '#cc0000' }}>Körben</span>
-          </h3>
-          <p style={{ color: '#666' }} className="mb-8 text-sm">
-            Exkluzív előzetes jegyek, új kiadások és hírek közvetlenül a postaládádba.
-          </p>
-          <form
-            className="flex flex-col sm:flex-row gap-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Feliratkozva!');
-            }}
-          >
-            <input
-              type="email"
-              placeholder="email@cimed.hu"
-              className="flex-1 px-6 py-4 text-sm focus:outline-none transition-colors"
-              style={{
-                backgroundColor: 'transparent',
-                border: '1px solid #3d0000',
-                color: '#fff',
-              }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#8b0000')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#3d0000')}
-              required
-            />
-            <button
-              type="submit"
-              className="px-8 py-4 text-sm font-bold uppercase tracking-widest transition-all duration-300"
-              style={{ backgroundColor: '#8b0000', border: '1px solid #cc0000' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#aa0000')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#8b0000')}
-            >
-              Feliratkozás
-            </button>
-          </form>
         </div>
       </section>
 
