@@ -1,20 +1,11 @@
 [
   {
     "id": "1",
-    "venue": "Dürer Kert",
-    "city": "Budapest",
+    "venue": "Barlang",
+    "city": "Szentendre",
     "country": "Magyarország",
-    "date": "2026-11-20T20:00:00",
-    "ticket_url": "https://example.com/tickets",
-    "is_sold_out": false
-  },
-  {
-    "id": "2",
-    "venue": "Robot",
-    "city": "Budapest",
-    "country": "Magyarország",
-    "date": "2026-12-11T20:00:00",
-    "ticket_url": null,
+    "date": "2026-10-24T19:00:00",
+    "ticket_url": "https://www.tixa.hu/slamtendrectomy-vaginal-reflux-head-on-collision-barlang-20261024",
     "is_sold_out": false
   }
 ]
