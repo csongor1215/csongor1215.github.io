@@ -18,19 +18,6 @@ const Instagram = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const Youtube = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-    <polygon points="10 15 15 12 10 9" fill="currentColor" />
-  </svg>
-);
-
-const Facebook = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
 interface TourDate {
   id: string;
   venue: string;
@@ -49,6 +36,7 @@ function App() {
     const handleScroll = () => {
       const sections = ['home', 'about', 'music', 'tour'];
       const scrollPos = window.scrollY + 100;
+
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -61,6 +49,7 @@ function App() {
         }
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -88,6 +77,7 @@ function App() {
               className="h-10 logo-inverted"
             />
           </button>
+
           <div className="hidden md:flex items-center gap-8">
             {[
               { id: 'home', label: 'Kezdőlap' },
@@ -118,7 +108,7 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0">
           <div
@@ -149,31 +139,7 @@ function App() {
           />
         </div>
 
-        <div
-          className="absolute top-0 left-0 right-0 h-1"
-          style={{
-            background:
-              'linear-gradient(90deg, transparent, #8b0000 20%, #cc0000 50%, #8b0000 80%, transparent)',
-          }}
-        />
-
-        <div className="relative z-10 text-center px-6 max-w-5xl">
-          <div
-            className="mb-8 inline-flex items-center gap-3 px-5 py-2 border"
-            style={{
-              backgroundColor: 'rgba(139,0,0,0.15)',
-              borderColor: '#8b0000',
-            }}
-          >
-            <Skull className="w-4 h-4" style={{ color: '#cc0000' }} />
-            <span
-              className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: '#cc0000' }}
-            >
-              Új Album Megjelent
-            </span>
-          </div>
-
+        <div className="relative z-10 w-full text-center px-4 sm:px-6 max-w-5xl">
           <div className="mb-8 flex justify-center">
             <img
               src="/slamtendre_logo.png"
@@ -187,10 +153,10 @@ function App() {
           </div>
 
           <p
-            className="text-lg md:text-xl uppercase tracking-widest mb-10"
-            style={{ color: '#888', letterSpacing: '0.25em' }}
+            className="text-xs sm:text-lg md:text-xl uppercase tracking-widest sm:tracking-[0.25em] mb-10 break-words"
+            style={{ color: '#888' }}
           >
-            Brutális&nbsp;&nbsp;•&nbsp;&nbsp;Könyörtelen&nbsp;&nbsp;•&nbsp;&nbsp;Megsemmisülés
+            Brutális • Könyörtelen • Megsemmisítő
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -262,11 +228,12 @@ function App() {
                   egy irgalmatlan robbantás.
                 </p>
                 <p>
-                  Három kritikusok által ünnepelt albummal és megszámolhatatlan
+                  Három kritikusok által ünnepelt albummal és megszámlálhatatlan
                   arcletépő fellépéssel a hátuk mögött a Slamtendrectomy tovább tolja
                   a szélsőséges zene határait.
                 </p>
               </div>
+
               <div
                 className="grid grid-cols-3 gap-6 mt-10 border-t pt-8"
                 style={{ borderColor: '#1a0000' }}
@@ -287,13 +254,14 @@ function App() {
                 ))}
               </div>
             </div>
+
             <div className="relative">
               <div
                 className="aspect-square overflow-hidden"
                 style={{ border: '1px solid #3d0000' }}
               >
                 <img
-                  src="https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/borisz.jpg"
                   alt="Slamtendrectomy"
                   className="w-full h-full object-cover"
                   style={{ filter: 'grayscale(60%) contrast(1.2) brightness(0.7)' }}
@@ -338,34 +306,18 @@ function App() {
               A <span style={{ color: '#cc0000' }}>Pusztítás</span> Hangjai
             </h2>
             <p style={{ color: '#666' }} className="max-w-xl mx-auto">
-              Három album. Könyörtelen hangi erőszak. Minden egyes dal a teljes megsemmisülés felé vezet.
+              Könyörtelen hangi erőszak. Minden egyes dal a teljes megsemmisülés felé vezet.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="max-w-md mx-auto">
             {[
               {
-                title: 'Bemetszések',
-                year: '2024',
-                image:
-                  'https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=600',
-                tracks: '12 szám',
+                title: 'SLAMTENDRECTOMY',
+                year: '2025',
+                image: '/slamtendre_albumcover.jpg',
+                url: 'https://open.spotify.com/album/7odCXdgmX0ffG3WS1gbQgc?si=aA7iz9voSLS9Izi22Smq-g',
                 isLatest: true,
-              },
-              {
-                title: 'Vérveszteség',
-                year: '2022',
-                image:
-                  'https://images.pexels.com/photos/1695934/pexels-photo-1695934.jpeg?auto=compress&cs=tinysrgb&w=600',
-                tracks: '10 szám',
-                isLatest: false,
-              },
-              {
-                title: 'Első Csapás',
-                year: '2020',
-                image:
-                  'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600',
-                tracks: '8 szám',
-                isLatest: false,
               },
             ].map((album) => (
               <div
@@ -393,25 +345,28 @@ function App() {
                     }}
                   />
                 </div>
+
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-2 mb-2" style={{ color: '#666' }}>
                     <Disc3 className="w-4 h-4" style={{ color: '#8b0000' }} />
                     <span className="text-xs uppercase tracking-wider">{album.year}</span>
                   </div>
                   <h3 className="text-xl font-black uppercase mb-1">{album.title}</h3>
-                  <p className="text-xs uppercase tracking-wider" style={{ color: '#555' }}>
-                    {album.tracks}
-                  </p>
                 </div>
+
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button
+                  <a
+                    href={album.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-6 py-3 font-bold uppercase tracking-wider flex items-center gap-2 transition-colors"
                     style={{ backgroundColor: '#8b0000', border: '1px solid #cc0000' }}
                   >
                     <Music className="w-4 h-4" />
                     Lejátszás
-                  </button>
+                  </a>
                 </div>
+
                 {album.isLatest && (
                   <div
                     className="absolute top-4 left-4 text-xs font-bold px-3 py-1 uppercase tracking-widest"
@@ -445,6 +400,7 @@ function App() {
               Ha eddig túlélted, most itt az alkalom megbizonyosodni róla, hogy soha nem felejted el.
             </p>
           </div>
+
           <div className="space-y-2">
             {tourDates.map((show, i) => (
               <div
@@ -476,10 +432,12 @@ function App() {
                     })}
                   </div>
                 </div>
+
                 <div
                   className="hidden md:block w-px self-stretch"
                   style={{ backgroundColor: '#1a0000' }}
                 />
+
                 <div className="flex-1">
                   <h3 className="text-lg font-bold uppercase tracking-wide">{show.venue}</h3>
                   <div className="flex items-center gap-2 mt-1" style={{ color: '#666' }}>
@@ -489,10 +447,12 @@ function App() {
                     </span>
                   </div>
                 </div>
+
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-mono" style={{ color: '#333' }}>
                     #{String(i + 1).padStart(2, '0')}
                   </span>
+
                   {show.is_sold_out ? (
                     <span
                       className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
@@ -535,6 +495,7 @@ function App() {
               </div>
             ))}
           </div>
+
           {tourDates.length === 0 && (
             <div className="text-center py-16 border" style={{ borderColor: '#1a0000' }}>
               <Skull className="w-10 h-10 mx-auto mb-4" style={{ color: '#3d0000' }} />
@@ -600,59 +561,33 @@ function App() {
       {/* Footer */}
       <footer className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
-          <div
-            className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8"
-            style={{ borderBottom: '1px solid #1a0000' }}
-          >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <img
               src="/slamtendre_logo.png"
               alt="Slamtendrectomy"
               className="h-12 logo-inverted"
               style={{ opacity: 0.6 }}
             />
+
             <div className="flex items-center gap-4">
-              {[
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: Youtube, label: 'YouTube' },
-                { Icon: Facebook, label: 'Facebook' },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-10 h-10 flex items-center justify-center transition-all duration-300"
-                  style={{ border: '1px solid #1a0000', color: '#555' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#8b0000';
-                    e.currentTarget.style.color = '#cc0000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#1a0000';
-                    e.currentTarget.style.color = '#555';
-                  }}
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div
-            className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs uppercase tracking-widest"
-            style={{ color: '#333' }}
-          >
-            <p>&copy; 2026 Slamtendrectomy. Minden jog fenntartva.</p>
-            <div className="flex items-center gap-6">
-              {['Adatvédelem', 'Feltételek', 'Kapcsolat'].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="transition-colors"
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#cc0000')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = '#333')}
-                >
-                  {link}
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/slamtendrectomy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 flex items-center justify-center transition-all duration-300"
+                style={{ border: '1px solid #1a0000', color: '#555' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#8b0000';
+                  e.currentTarget.style.color = '#cc0000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#1a0000';
+                  e.currentTarget.style.color = '#555';
+                }}
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
