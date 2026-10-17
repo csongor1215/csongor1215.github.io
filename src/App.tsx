@@ -83,7 +83,7 @@ function App() {
               { id: 'home', label: 'Kezdőlap' },
               { id: 'about', label: 'A Zenekarról' },
               { id: 'music', label: 'Zene' },
-              { id: 'tour', label: 'Turnédátumok' },
+              { id: 'tour', label: 'Koncertek' },
             ].map((item) => (
               <button
                 key={item.id}
@@ -358,7 +358,7 @@ function App() {
               className="text-xs font-bold tracking-widest uppercase mb-4 block"
               style={{ color: '#8b0000' }}
             >
-              Turné
+              élő
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">
               koncertek <span style={{ color: '#cc0000' }}>vagy mi a fasz</span>
