@@ -45,7 +45,6 @@ function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    // Turnédátumok betöltése a külső fájlból
     fetch(`/tourDates.json?t=${Date.now()}`)
       .then((res) => {
         if (!res.ok) throw new Error('Nem tölthető be a turnédátum');
