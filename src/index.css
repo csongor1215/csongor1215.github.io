@@ -1,52 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600;700&family=Special+Elite&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #050000;
+:root {
+  --blood-black: #0a0000;
+  --blood-deep: #180000;
+  --blood-dark: #2d0000;
+  --blood-mid: #520000;
+  --blood-main: #7a0000;
+  --blood-bright: #a30000;
+  --bone-white: #d8c8c8;
+  --ash-gray: #8c7373;
 }
 
+body {
+  background-color: var(--blood-deep);
+  color: var(--bone-white);
+  font-family: 'Oswald', sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(122, 0, 0, 0.45) 0%, rgba(45, 0, 0, 0.7) 50%, #090000 100%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0px, rgba(0, 0, 0, 0.25) 1px, transparent 1px, transparent 3px);
+  background-attachment: fixed;
+}
+
+/* Durva xerox / gore szemcsézettség[cite: 1] */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grunge'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0.3  0 0 0 0 0  0 0 0 0 0  0 0 0 0.14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grunge)'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9999;
+  mix-blend-mode: hard-light;
+}
+
+/* Sötétvörös vignetta a széleken */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.95), inset 0 0 40px rgba(90, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.font-metal {
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 0.06em;
+}
+
+.font-zine {
+  font-family: 'Special Elite', monospace;
 }
 
 .section-divider {
-  position: relative;
+  width: 100%;
+  height: 12px;
+  background-color: #090000;
+  border-top: 2px solid #520000;
+  border-bottom: 2px solid #300000;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #2d0000,
+    #2d0000 6px,
+    #090000 6px,
+    #090000 12px
+  );
 }
 
-.section-divider::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #8b0000, #cc0000, #8b0000, transparent);
-  opacity: 0.5;
+.brutal-box {
+  background-color: #140000;
+  border: 2px solid #5c0000;
+  box-shadow: 
+    inset 0 0 0 2px #090000,
+    inset 0 0 25px rgba(122, 0, 0, 0.35),
+    6px 6px 0px #050000;
+}
+
+.brutal-btn {
+  background-color: #5c0000;
+  color: #e5d5d5;
+  border: 2px solid #990000;
+  box-shadow: 4px 4px 0px #050000, inset 0 0 10px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: none;
+}
+
+.brutal-btn:hover {
+  background-color: #8b0000;
+  color: #ffffff;
+  border-color: #cc0000;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #050000;
+}
+
+.brutal-btn-secondary {
+  background-color: #1a0000;
+  color: #a88b8b;
+  border: 2px solid #4a0000;
+  box-shadow: 4px 4px 0px #050000;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: none;
+}
+
+.brutal-btn-secondary:hover {
+  background-color: #3d0000;
+  color: #e5d5d5;
+  border-color: #8b0000;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #050000;
 }
 
 .drip-text {
-  filter: drop-shadow(0 4px 12px rgba(139, 0, 0, 0.8));
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(139, 0, 0, 0.85));
 }
 
-.logo-inverted {
-  filter: invert(1) drop-shadow(0 0 20px rgba(200, 0, 0, 0.4));
+.logo-blood {
+  filter: invert(1) sepia(1) saturate(8) hue-rotate(315deg) brightness(0.85) contrast(1.5) drop-shadow(0 4px 6px #000);
+}
+
+.gore-image {
+  filter: grayscale(100%) contrast(1.55) brightness(0.65) sepia(85%) hue-rotate(315deg) saturate(3);
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050000;
+  background: #0a0000;
+  border-left: 1px solid #3d0000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b0000;
+  background: #660000;
+  border: 1px solid #990000;
 }
