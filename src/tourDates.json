@@ -7,5 +7,23 @@
     "date": "2026-10-24T19:00:00",
     "ticket_url": "https://www.tixa.hu/slamtendrectomy-vaginal-reflux-head-on-collision-barlang-20261024",
     "is_sold_out": false
+  },
+  {
+    "id": "2",
+    "venue": "S8 Tehetségkutató",
+    "city": "Budapest",
+    "country": "Magyarország",
+    "date": "2026-12-03T18:45:00",
+    "ticket_url": "",
+    "is_sold_out": false
+  },
+  {
+    "id": "3",
+    "venue": "S8 Év Végi Káosz",
+    "city": "Budapest",
+    "country": "Magyarország",
+    "date": "2026-12-28T18:30:00",
+    "ticket_url": "",
+    "is_sold_out": false
   }
 ]
