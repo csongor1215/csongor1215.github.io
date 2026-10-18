@@ -18,6 +18,12 @@ const Instagram = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const Facebook = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
 interface TourDate {
   id: string;
   venue: string;
@@ -25,6 +31,7 @@ interface TourDate {
   country: string;
   date: string;
   ticket_url: string | null;
+  facebook_url?: string | null;
   is_sold_out: boolean;
 }
 
@@ -36,7 +43,6 @@ function App() {
     const handleScroll = () => {
       const sections = ['home', 'about', 'music', 'tour'];
       const scrollPos = window.scrollY + 100;
-
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -77,7 +83,6 @@ function App() {
               className="h-10 logo-inverted"
             />
           </button>
-
           <div className="hidden md:flex items-center gap-8">
             {[
               { id: 'home', label: 'Kezdőlap' },
@@ -151,14 +156,12 @@ function App() {
               }}
             />
           </div>
-
           <p
             className="text-xs sm:text-lg md:text-xl uppercase tracking-widest sm:tracking-[0.25em] mb-10 break-words"
             style={{ color: '#888' }}
           >
-            fasz • brutal shit • didy
+            fasz brutal shit didy
           </p>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => scrollTo('music')}
@@ -221,7 +224,6 @@ function App() {
                 </p>
               </div>
             </div>
-
             <div className="relative">
               <div
                 className="aspect-square overflow-hidden"
@@ -273,7 +275,7 @@ function App() {
               A <span style={{ color: '#cc0000' }}>FITYMACSATTOGÁS</span> Hangjai
             </h2>
             <p style={{ color: '#666' }} className="max-w-xl mx-auto">
-              Még mindig csak a faszunkat verjük.
+              Még mindig csak a faszunkat verjük
             </p>
           </div>
 
@@ -358,7 +360,7 @@ function App() {
               className="text-xs font-bold tracking-widest uppercase mb-4 block"
               style={{ color: '#8b0000' }}
             >
-              élő
+              Turné
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">
               koncertek <span style={{ color: '#cc0000' }}>vagy mi a fasz</span>
@@ -369,7 +371,7 @@ function App() {
           </div>
 
           <div className="space-y-2">
-            {tourDates.map((show, i) => (
+            {tourDates.map((show) => (
               <div
                 key={show.id}
                 className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-8 p-6 transition-all duration-300"
@@ -416,9 +418,31 @@ function App() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono" style={{ color: '#333' }}>
-                    #{String(i + 1).padStart(2, '0')}
-                  </span>
+                  {show.facebook_url && (
+                    <a
+                      href={show.facebook_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/fb px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 transition-all duration-300"
+                      style={{
+                        backgroundColor: 'transparent',
+                        border: '1px solid #3d0000',
+                        color: '#999',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = '#8b0000';
+                        e.currentTarget.style.color = '#fff';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = '#3d0000';
+                        e.currentTarget.style.color = '#999';
+                      }}
+                    >
+                      <Facebook className="w-3 h-3" />
+                      Facebook esemény
+                      <ExternalLink className="w-3 h-3 group-hover/fb:translate-x-0.5 transition-transform" />
+                    </a>
+                  )}
 
                   {show.is_sold_out ? (
                     <span
@@ -455,7 +479,7 @@ function App() {
                         color: '#555',
                       }}
                     >
-                      Hamarosan
+                      Csak a helyszínen lehet jegyet venni
                     </span>
                   )}
                 </div>
@@ -485,7 +509,6 @@ function App() {
               className="h-12 logo-inverted"
               style={{ opacity: 0.6 }}
             />
-
             <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/slamtendrectomy/"
